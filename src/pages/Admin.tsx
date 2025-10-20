@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Lock, User, Loader2, Building2 } from "lucide-react";
+import { Lock, User, Loader2, Home } from "lucide-react";
 import { toast } from "sonner";
 import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import { Navigate } from "react-router-dom";
@@ -49,7 +49,7 @@ const Admin = () => {
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
-              <Building2 className="w-10 h-10 text-primary-foreground" aria-label="Wisma Eldorado Logo" />
+              <Home className="w-10 h-10 text-primary-foreground" aria-label="Wisma Eldorado Logo" />
             </div>
           </div>
 
