@@ -3,17 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { AirVent, Bath, Wifi, Tv, ParkingCircle, Droplet, Bed } from "lucide-react";
 import roomDeluxe from "@/assets/room-deluxe.jpg";
 import roomStandard from "@/assets/room-standard.jpg";
 import roomTwin from "@/assets/room-twin.jpg";
 
 const Rooms = () => {
-  // Scroll animation hooks
-  const { elementRef: roomsSectionRef, isVisible: isRoomsVisible } = useScrollAnimation(0.1);
-  const { elementRef: facilitiesSectionRef, isVisible: isFacilitiesVisible } = useScrollAnimation(0.1);
-  
   const rooms = [
     {
       name: "Deluxe Room 1",
@@ -86,21 +81,14 @@ const Rooms = () => {
       </section>
 
       {/* Rooms Grid */}
-      <section 
-        ref={roomsSectionRef}
-        className="py-16"
-      >
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {rooms.map((room, index) => (
               <Card
                 key={room.name}
-                className={`overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 ${
-                  isRoomsVisible 
-                    ? 'animate-scroll-fade-in' 
-                    : 'scroll-animate-hidden'
-                }`}
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative">
                   <img
