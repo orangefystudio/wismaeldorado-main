@@ -15,9 +15,9 @@ import {
   DollarSign,
   TrendingUp,
   Clock,
-  Building2,
   Shield
 } from "lucide-react";
+import { WismaLogo } from "@/components/ui/wisma-logo";
 import { toast } from "sonner";
 import { Navigate } from "react-router-dom";
 import BookingManagement from "./BookingManagement";
@@ -88,9 +88,7 @@ const AdminDashboard = () => {
       }`}>
         <div className="flex items-center justify-between p-6 border-b border-border">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <Building2 className="w-8 h-8 text-primary" aria-label="Wisma Eldorado Logo" />
-            </div>
+            <WismaLogo size={32} className="flex-shrink-0" />
             <span className="font-heading font-semibold text-lg tracking-tight">Wisma Eldorado</span>
           </div>
           <Button
