@@ -148,11 +148,20 @@ export const AdminAuthProvider = ({ children }: { children: React.ReactNode }) =
   };
 
   const signIn = async (email: string, password: string) => {
+    console.log('Demo mode enabled:', demoModeEnabled);
+    console.log('Demo email:', demoEmail);
+    console.log('Demo password:', demoPassword);
+    console.log('Input email:', email);
+    console.log('Input password:', password);
+    console.log('VITE_DEMO_EMAIL env:', import.meta.env.VITE_DEMO_EMAIL);
+    console.log('VITE_DEMO_PASSWORD env:', import.meta.env.VITE_DEMO_PASSWORD);
+    
     if (demoModeEnabled) {
       // Simple demo credential check (can be any non-empty, or match env if provided)
       const valid = (import.meta.env.VITE_DEMO_EMAIL && import.meta.env.VITE_DEMO_PASSWORD)
         ? (email === demoEmail && password === demoPassword)
         : (Boolean(email) && Boolean(password));
+      console.log('Validation result:', valid);
       if (!valid) {
         return { error: new Error('Invalid demo credentials') };
       }
