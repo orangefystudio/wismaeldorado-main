@@ -190,7 +190,7 @@ const AdminDashboard = () => {
               <Menu className="w-5 h-5" />
             </Button>
             <h1 className="text-2xl font-heading font-semibold tracking-tight">
-              {sidebarItems.find(item => item.id === activeTab)?.label || "Dashboard"}
+              {[...mainMenuItems, ...settingsItems].find(item => item.id === activeTab)?.label || "Dashboard"}
             </h1>
           </div>
         </header>
