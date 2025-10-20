@@ -117,42 +117,42 @@ const Index = () => {
               <img
                 src={roomDeluxe}
                 alt="Kamar Interior"
-                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg ${
                   isAboutVisible 
                     ? 'animate-scroll-slide-left' 
                     : 'scroll-animate-hidden'
                 }`}
-                style={{ animationDelay: '0.1s' }}
+                style={{ animationDelay: '0.15s' }}
               />
               <img
                 src={lobbyImage}
                 alt="Lobby"
-                className={`rounded-2xl w-full h-64 object-cover mt-8 transition-all duration-300 hover:scale-105 ${
+                className={`rounded-2xl w-full h-64 object-cover mt-8 transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg ${
                   isAboutVisible 
                     ? 'animate-scroll-slide-right' 
                     : 'scroll-animate-hidden'
                 }`}
-                style={{ animationDelay: '0.2s' }}
+                style={{ animationDelay: '0.25s' }}
               />
               <img
                 src={roomStandard}
                 alt="Kamar Standard"
-                className={`rounded-2xl w-full h-64 object-cover -mt-8 transition-all duration-300 hover:scale-105 ${
+                className={`rounded-2xl w-full h-64 object-cover -mt-8 transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg ${
                   isAboutVisible 
                     ? 'animate-scroll-slide-left' 
                     : 'scroll-animate-hidden'
                 }`}
-                style={{ animationDelay: '0.3s' }}
+                style={{ animationDelay: '0.35s' }}
               />
               <img
                 src={heroImage}
                 alt="Gedung Depan"
-                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg ${
                   isAboutVisible 
                     ? 'animate-scroll-slide-right' 
                     : 'scroll-animate-hidden'
                 }`}
-                style={{ animationDelay: '0.4s' }}
+                style={{ animationDelay: '0.45s' }}
               />
             </div>
 

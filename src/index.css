@@ -134,27 +134,28 @@ All colors MUST be HSL.
     animation: scaleIn 0.4s ease-out forwards;
   }
   
-  /* Simple scroll animations for about section photos */
+  /* Smooth scroll animations for about section photos */
   .animate-scroll-fade-in {
-    animation: scrollFadeIn 0.8s ease-out forwards;
+    animation: scrollFadeIn 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
   
   .animate-scroll-slide-left {
-    animation: scrollSlideLeft 0.8s ease-out forwards;
+    animation: scrollSlideLeft 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
   
   .animate-scroll-slide-right {
-    animation: scrollSlideRight 0.8s ease-out forwards;
+    animation: scrollSlideRight 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
   
   .animate-scroll-slide-up {
-    animation: scrollSlideUp 0.8s ease-out forwards;
+    animation: scrollSlideUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
   
   /* Initial state for scroll animations */
   .scroll-animate-hidden {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   @keyframes fadeIn {
@@ -190,46 +191,62 @@ All colors MUST be HSL.
     }
   }
   
-  /* Simple scroll animation keyframes */
+  /* Smooth scroll animation keyframes */
   @keyframes scrollFadeIn {
-    from {
+    0% {
       opacity: 0;
       transform: translateY(30px) scale(0.95);
     }
-    to {
+    60% {
+      opacity: 0.8;
+      transform: translateY(-5px) scale(1.02);
+    }
+    100% {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
   }
   
   @keyframes scrollSlideLeft {
-    from {
+    0% {
       opacity: 0;
       transform: translateX(-50px) scale(0.95);
     }
-    to {
+    60% {
+      opacity: 0.8;
+      transform: translateX(5px) scale(1.02);
+    }
+    100% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
   }
   
   @keyframes scrollSlideRight {
-    from {
+    0% {
       opacity: 0;
       transform: translateX(50px) scale(0.95);
     }
-    to {
+    60% {
+      opacity: 0.8;
+      transform: translateX(-5px) scale(1.02);
+    }
+    100% {
       opacity: 1;
       transform: translateX(0) scale(1);
     }
   }
   
   @keyframes scrollSlideUp {
-    from {
+    0% {
       opacity: 0;
       transform: translateY(50px) scale(0.95);
     }
-    to {
+    60% {
+      opacity: 0.8;
+      transform: translateY(-5px) scale(1.02);
+    }
+    100% {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
