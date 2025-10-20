@@ -117,9 +117,9 @@ const Index = () => {
               <img
                 src={roomDeluxe}
                 alt="Kamar Interior"
-                className={`rounded-2xl w-full h-64 object-cover photo-enhanced ${
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
                   isAboutVisible 
-                    ? 'animate-scroll-slide-left shadow-lg' 
+                    ? 'animate-scroll-slide-left' 
                     : 'scroll-animate-hidden'
                 }`}
                 style={{ animationDelay: '0.1s' }}
@@ -127,9 +127,9 @@ const Index = () => {
               <img
                 src={lobbyImage}
                 alt="Lobby"
-                className={`rounded-2xl w-full h-64 object-cover mt-8 photo-enhanced ${
+                className={`rounded-2xl w-full h-64 object-cover mt-8 transition-all duration-300 hover:scale-105 ${
                   isAboutVisible 
-                    ? 'animate-scroll-slide-right shadow-lg' 
+                    ? 'animate-scroll-slide-right' 
                     : 'scroll-animate-hidden'
                 }`}
                 style={{ animationDelay: '0.2s' }}
@@ -137,9 +137,9 @@ const Index = () => {
               <img
                 src={roomStandard}
                 alt="Kamar Standard"
-                className={`rounded-2xl w-full h-64 object-cover -mt-8 photo-enhanced ${
+                className={`rounded-2xl w-full h-64 object-cover -mt-8 transition-all duration-300 hover:scale-105 ${
                   isAboutVisible 
-                    ? 'animate-scroll-slide-left shadow-lg' 
+                    ? 'animate-scroll-slide-left' 
                     : 'scroll-animate-hidden'
                 }`}
                 style={{ animationDelay: '0.3s' }}
@@ -147,9 +147,9 @@ const Index = () => {
               <img
                 src={heroImage}
                 alt="Gedung Depan"
-                className={`rounded-2xl w-full h-64 object-cover photo-enhanced ${
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
                   isAboutVisible 
-                    ? 'animate-scroll-slide-right shadow-lg' 
+                    ? 'animate-scroll-slide-right' 
                     : 'scroll-animate-hidden'
                 }`}
                 style={{ animationDelay: '0.4s' }}
