@@ -86,10 +86,11 @@ const AdminDashboard = () => {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 flex flex-col ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
-        <div className="flex items-center justify-between p-6 border-b border-border">
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-border flex-shrink-0">
           <div className="flex items-center space-x-2">
             <Home className="w-8 h-8 text-primary flex-shrink-0" />
             <span className="font-heading font-semibold text-lg tracking-tight">Wisma Eldorado</span>
@@ -104,8 +105,8 @@ const AdminDashboard = () => {
           </Button>
         </div>
 
-        {/* Main Menu */}
-        <nav className="p-4 space-y-2">
+        {/* Main Menu - Scrollable */}
+        <nav className="p-4 space-y-2 flex-1 overflow-y-auto">
           {mainMenuItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -129,46 +130,49 @@ const AdminDashboard = () => {
           })}
         </nav>
 
-        {/* Settings Section - Separated */}
-        <div className="absolute bottom-36 left-4 right-4 border-t border-border pt-4">
-          {settingsItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Button
-                key={item.id}
-                variant={activeTab === item.id ? "default" : "ghost"}
-                className={`w-full justify-start font-body ${
-                  activeTab === item.id 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-foreground/80 hover:text-primary hover:bg-primary/10"
-                }`}
-                onClick={() => {
-                  setActiveTab(item.id);
-                  setSidebarOpen(false);
-                }}
-              >
-                <Icon className="w-4 h-4 mr-3" />
-                {item.label}
-              </Button>
-            );
-          })}
-        </div>
-
-        {/* Admin Info & Logout - Bottom */}
-        <div className="absolute bottom-4 left-4 right-4 space-y-3">
-          <div className="p-4 bg-secondary/30 rounded-lg border border-border">
-            <p className="text-sm font-medium font-body">{adminUser.name}</p>
-            <p className="text-xs text-muted-foreground">{adminUser.email}</p>
-            <p className="text-xs text-primary capitalize font-body mt-1">{adminUser.role}</p>
+        {/* Bottom Section - Fixed */}
+        <div className="flex-shrink-0 border-t border-border">
+          {/* Settings Section - Separated */}
+          <div className="p-4">
+            {settingsItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Button
+                  key={item.id}
+                  variant={activeTab === item.id ? "default" : "ghost"}
+                  className={`w-full justify-start font-body ${
+                    activeTab === item.id 
+                      ? "bg-primary text-primary-foreground" 
+                      : "text-foreground/80 hover:text-primary hover:bg-primary/10"
+                  }`}
+                  onClick={() => {
+                    setActiveTab(item.id);
+                    setSidebarOpen(false);
+                  }}
+                >
+                  <Icon className="w-4 h-4 mr-3" />
+                  {item.label}
+                </Button>
+              );
+            })}
           </div>
-          <Button
-            variant="outline"
-            className="w-full font-body"
-            onClick={handleSignOut}
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            Logout
-          </Button>
+
+          {/* Admin Info & Logout */}
+          <div className="p-4 space-y-3 border-t border-border">
+            <div className="p-4 bg-secondary/30 rounded-lg border border-border">
+              <p className="text-sm font-medium font-body">{adminUser.name}</p>
+              <p className="text-xs text-muted-foreground">{adminUser.email}</p>
+              <p className="text-xs text-primary capitalize font-body mt-1">{adminUser.role}</p>
+            </div>
+            <Button
+              variant="outline"
+              className="w-full font-body"
+              onClick={handleSignOut}
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              Logout
+            </Button>
+          </div>
         </div>
       </div>
 
