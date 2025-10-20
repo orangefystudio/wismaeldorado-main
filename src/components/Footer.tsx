@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Instagram, Building2 } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Home } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 flex items-center justify-center">
-                <Building2 className="w-8 h-8 text-[#E2E8F0]/80" aria-label="Wisma Eldorado Logo" />
+                <Home className="w-8 h-8 text-[#E2E8F0]/80" aria-label="Wisma Eldorado Logo" />
               </div>
               <span className="font-heading font-semibold text-lg tracking-tight">Wisma Eldorado</span>
             </div>
@@ -113,7 +113,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-[#E2E8F0]/10 text-center">
           <p className="text-sm text-[#E2E8F0]/60">
-            © 2025 Wisma Eldorado — Designed in Sumba Timur
+            © 2024 Wisma Eldorado — Designed in Sumba Timur
           </p>
         </div>
       </div>

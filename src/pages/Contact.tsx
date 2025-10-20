@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -134,7 +135,7 @@ const Contact = () => {
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8"
           >
-            <a href="/booking">Pesan Kamar</a>
+            <Link to="/booking">Pesan Kamar</Link>
           </Button>
         </div>
       </section>
