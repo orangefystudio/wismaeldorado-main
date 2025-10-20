@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   AirVent,
   Bath,
@@ -22,6 +23,9 @@ import roomTwin from "@/assets/room-twin.jpg";
 import lobbyImage from "@/assets/lobby.jpg";
 
 const Index = () => {
+  // Scroll animation hooks for about section photos
+  const { elementRef: aboutSectionRef, isVisible: isAboutVisible } = useScrollAnimation(0.2);
+  
   const facilities = [
     { icon: AirVent, title: "AC di Semua Kamar", description: "Ruangan sejuk dan nyaman" },
     { icon: Bath, title: "Kamar Mandi Pribadi", description: "Air panas tersedia" },
@@ -106,26 +110,49 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4 animate-scale-in">
+            <div 
+              ref={aboutSectionRef}
+              className="grid grid-cols-2 gap-4"
+            >
               <img
                 src={roomDeluxe}
                 alt="Kamar Interior"
-                className="rounded-2xl w-full h-64 object-cover"
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
+                  isAboutVisible 
+                    ? 'animate-scroll-slide-left' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: '0.1s' }}
               />
               <img
                 src={lobbyImage}
                 alt="Lobby"
-                className="rounded-2xl w-full h-64 object-cover mt-8"
+                className={`rounded-2xl w-full h-64 object-cover mt-8 transition-all duration-300 hover:scale-105 ${
+                  isAboutVisible 
+                    ? 'animate-scroll-slide-right' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: '0.2s' }}
               />
               <img
                 src={roomStandard}
                 alt="Kamar Standard"
-                className="rounded-2xl w-full h-64 object-cover -mt-8"
+                className={`rounded-2xl w-full h-64 object-cover -mt-8 transition-all duration-300 hover:scale-105 ${
+                  isAboutVisible 
+                    ? 'animate-scroll-slide-left' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: '0.3s' }}
               />
               <img
                 src={heroImage}
                 alt="Gedung Depan"
-                className="rounded-2xl w-full h-64 object-cover"
+                className={`rounded-2xl w-full h-64 object-cover transition-all duration-300 hover:scale-105 ${
+                  isAboutVisible 
+                    ? 'animate-scroll-slide-right' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: '0.4s' }}
               />
             </div>
 
