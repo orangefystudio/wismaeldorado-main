@@ -41,13 +41,16 @@ const AdminDashboard = () => {
     toast.success("Logout berhasil");
   };
 
-  const sidebarItems = [
+  const mainMenuItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "bookings", label: "Pemesanan", icon: Calendar },
     { id: "rooms", label: "Kamar", icon: Bed },
     { id: "reports", label: "Laporan", icon: BarChart3 },
     { id: "audit", label: "Audit Log", icon: Shield },
     { id: "protection", label: "Keamanan", icon: Shield },
+  ];
+
+  const settingsItems = [
     { id: "settings", label: "Pengaturan", icon: Settings },
   ];
 
@@ -101,8 +104,9 @@ const AdminDashboard = () => {
           </Button>
         </div>
 
+        {/* Main Menu */}
         <nav className="p-4 space-y-2">
-          {sidebarItems.map((item) => {
+          {mainMenuItems.map((item) => {
             const Icon = item.icon;
             return (
               <Button
@@ -125,11 +129,37 @@ const AdminDashboard = () => {
           })}
         </nav>
 
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="p-4 bg-secondary/30 rounded-lg mb-4">
+        {/* Settings Section - Separated */}
+        <div className="absolute bottom-36 left-4 right-4 border-t border-border pt-4">
+          {settingsItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Button
+                key={item.id}
+                variant={activeTab === item.id ? "default" : "ghost"}
+                className={`w-full justify-start font-body ${
+                  activeTab === item.id 
+                    ? "bg-primary text-primary-foreground" 
+                    : "text-foreground/80 hover:text-primary hover:bg-primary/10"
+                }`}
+                onClick={() => {
+                  setActiveTab(item.id);
+                  setSidebarOpen(false);
+                }}
+              >
+                <Icon className="w-4 h-4 mr-3" />
+                {item.label}
+              </Button>
+            );
+          })}
+        </div>
+
+        {/* Admin Info & Logout - Bottom */}
+        <div className="absolute bottom-4 left-4 right-4 space-y-3">
+          <div className="p-4 bg-secondary/30 rounded-lg border border-border">
             <p className="text-sm font-medium font-body">{adminUser.name}</p>
             <p className="text-xs text-muted-foreground">{adminUser.email}</p>
-            <p className="text-xs text-primary capitalize font-body">{adminUser.role}</p>
+            <p className="text-xs text-primary capitalize font-body mt-1">{adminUser.role}</p>
           </div>
           <Button
             variant="outline"
