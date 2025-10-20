@@ -23,8 +23,10 @@ import roomTwin from "@/assets/room-twin.jpg";
 import lobbyImage from "@/assets/lobby.jpg";
 
 const Index = () => {
-  // Scroll animation hooks for about section photos
+  // Scroll animation hooks for different sections
   const { elementRef: aboutSectionRef, isVisible: isAboutVisible } = useScrollAnimation(0.2);
+  const { elementRef: facilitiesSectionRef, isVisible: isFacilitiesVisible } = useScrollAnimation(0.1);
+  const { elementRef: roomsSectionRef, isVisible: isRoomsVisible } = useScrollAnimation(0.1);
   
   const facilities = [
     { icon: AirVent, title: "AC di Semua Kamar", description: "Ruangan sejuk dan nyaman" },
@@ -179,9 +181,14 @@ const Index = () => {
       </section>
 
       {/* Rooms Preview */}
-      <section className="py-20 bg-secondary/30">
+      <section 
+        ref={roomsSectionRef}
+        className="py-20 bg-secondary/30"
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 animate-fade-in">
+          <div className={`text-center mb-10 transition-all duration-700 ${
+            isRoomsVisible ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight mb-3">
               Kamar Kami
             </h2>
@@ -195,8 +202,12 @@ const Index = () => {
             {rooms.map((room, index) => (
               <Card
                 key={room.name}
-                className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-2 animate-scale-in border-0"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`overflow-hidden hover:shadow-lg transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 ${
+                  isRoomsVisible 
+                    ? 'animate-scroll-fade-in' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <img
                   src={room.image}
@@ -247,9 +258,14 @@ const Index = () => {
       </section>
 
       {/* Facilities Section */}
-      <section className="py-20 bg-muted/50">
+      <section 
+        ref={facilitiesSectionRef}
+        className="py-20 bg-muted/50"
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
+          <div className={`text-center mb-12 transition-all duration-700 ${
+            isFacilitiesVisible ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+          }`}>
             <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight mb-3">
               Fasilitas
             </h2>
@@ -262,10 +278,14 @@ const Index = () => {
             {facilities.map((facility, index) => (
               <Card
                 key={facility.title}
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-scale-in border-0"
-                style={{ animationDelay: `${index * 0.05}s` }}
+                className={`p-6 hover:shadow-lg transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-0 ${
+                  isFacilitiesVisible 
+                    ? 'animate-scroll-fade-in' 
+                    : 'scroll-animate-hidden'
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <facility.icon className="w-12 h-12 text-primary mb-4" />
+                <facility.icon className="w-12 h-12 text-primary mb-4 transition-colors duration-300 group-hover:text-accent" />
                 <h3 className="text-xl font-heading font-semibold mb-2">
                   {facility.title}
                 </h3>
@@ -279,29 +299,31 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight mb-5">
-            Siap Menginap di Wisma Eldorado?
-          </h2>
-          <p className="text-base md:text-lg mb-7 max-w-2xl mx-auto opacity-90">
-            Pesan kamar Anda sekarang dan nikmati pengalaman menginap yang nyaman
-            di pusat Kota Waingapu
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8"
-            >
-              <Link to="/booking">Pesan Sekarang</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="bg-white/10 hover:bg-white/20 text-white border-white text-lg px-8"
-            >
-              <Link to="/contact">Hubungi Kami</Link>
-            </Button>
+          <div className="animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight mb-5">
+              Siap Menginap di Wisma Eldorado?
+            </h2>
+            <p className="text-base md:text-lg mb-7 max-w-2xl mx-auto opacity-90">
+              Pesan kamar Anda sekarang dan nikmati pengalaman menginap yang nyaman
+              di pusat Kota Waingapu
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <Link to="/booking">Pesan Sekarang</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white text-lg px-8 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <Link to="/contact">Hubungi Kami</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

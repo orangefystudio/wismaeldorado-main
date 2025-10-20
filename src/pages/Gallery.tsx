@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import heroImage from "@/assets/hero-guesthouse.jpg";
 import roomDeluxe from "@/assets/room-deluxe.jpg";
 import roomStandard from "@/assets/room-standard.jpg";
@@ -7,6 +8,9 @@ import roomTwin from "@/assets/room-twin.jpg";
 import lobbyImage from "@/assets/lobby.jpg";
 
 const Gallery = () => {
+  // Scroll animation hooks
+  const { elementRef: gallerySectionRef, isVisible: isGalleryVisible } = useScrollAnimation(0.1);
+  
   const galleryImages = [
     { src: heroImage, alt: "Wisma Eldorado Exterior", category: "Exterior" },
     { src: roomDeluxe, alt: "Deluxe Room", category: "Rooms" },
@@ -34,13 +38,20 @@ const Gallery = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16">
+      <section 
+        ref={gallerySectionRef}
+        className="py-16"
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl animate-scale-in cursor-pointer"
+                className={`group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-xl ${
+                  isGalleryVisible 
+                    ? 'animate-scroll-fade-in' 
+                    : 'scroll-animate-hidden'
+                }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <img
