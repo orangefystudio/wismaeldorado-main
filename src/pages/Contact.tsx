@@ -36,7 +36,7 @@ const Contact = () => {
                   href="tel:+6281234567890"
                   className="text-foreground/70 hover:text-primary transition-colors"
                 >
-                  +62 812-3456-7890
+                  +62 812xxx
                 </a>
               </CardContent>
             </Card>
