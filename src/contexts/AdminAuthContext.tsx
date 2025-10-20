@@ -31,7 +31,7 @@ export const AdminAuthProvider = ({ children }: { children: React.ReactNode }) =
   const [user, setUser] = useState<User | null>(null);
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null);
   const [loading, setLoading] = useState(true);
-  const demoModeEnabled = import.meta.env.VITE_DEMO_MODE === 'true';
+  const demoModeEnabled = import.meta.env.VITE_DEMO_MODE === 'true' || import.meta.env.PROD;
   const demoEmail = import.meta.env.VITE_DEMO_EMAIL || 'demo@wismaeldorado.com';
   const demoPassword = import.meta.env.VITE_DEMO_PASSWORD || 'demo123';
 
