@@ -112,11 +112,6 @@ const Admin = () => {
             <p className="text-sm text-foreground/60 font-body">
               Hanya untuk admin Wisma Eldorado
             </p>
-            <div className="mt-4 p-3 bg-muted rounded-lg">
-              <p className="text-xs text-muted-foreground font-body">
-                Demo Mode: demo@wismaeldorado.com / demo123
-              </p>
-            </div>
           </div>
         </CardContent>
       </Card>
