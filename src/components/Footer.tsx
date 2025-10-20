@@ -113,7 +113,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-[#E2E8F0]/10 text-center">
           <p className="text-sm text-[#E2E8F0]/60">
-            © 2024 Wisma Eldorado — Designed in Sumba Timur
+            © 2024 Wisma Eldorado — Professional Web Development Solutions
           </p>
         </div>
       </div>
