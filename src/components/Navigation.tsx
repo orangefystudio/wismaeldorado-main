@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { WismaLogo } from "@/components/ui/wisma-logo";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <WismaLogo size={32} className="flex-shrink-0" />
+            <Home className="w-8 h-8 text-primary flex-shrink-0" />
             <span className="font-heading font-semibold text-lg tracking-tight hidden sm:block">
               Wisma Eldorado
             </span>
